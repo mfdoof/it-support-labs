@@ -1,24 +1,22 @@
-# IT Support Labs
+# Networking Fundamentals
 
-A hands-on portfolio documenting my preparation for an IT Support Associate role.
+This section documents my understanding of core networking concepts
+relevant to IT support roles — written to reinforce both technical
+knowledge and the ability to explain concepts clearly in interviews
+and on the job.
 
-This repo covers practical skills across networking, Microsoft 365 administration,
-help desk simulation, and scripting,troubleshooting practice, and interview preparation.
+## Topics Covered
 
-## Contents
+- [TCP/IP](./tcp-ip.md)
+- [IP Addressing](./ip-addressing.md)
+- [Subnetting](./subnetting.md)
+- [DNS](./dns.md)
+- [DHCP](./dhcp.md)
+- [VPN](./vpn.md)
+- [Wi-Fi Troubleshooting](./wifi-troubleshooting.md)
 
-| Phase | Topic | Status |
-|-------|-------|--------|
-| 1 | Networking Fundamentals | In Progress |
-| 2 | Microsoft 365 & Entra ID | Upcoming |
-| 3 | Help Desk Simulation | Upcoming |
-| 4 | Preferred Skills (PowerShell, Linux, VoIP) | Upcoming |
+## Approach
 
-## About Me
-
-Maverick Moses L. Alier — BS Information Technology student with a focus in networking.
-Currently building hands-on experience in endpoint support and cloud identity management.
-
-
-
-
+Each topic includes interview-style questions with written answers,
+troubleshooting scenarios, and notes from hands-on practice with
+tools like ping, ipconfig, nslookup, and tracert.
