@@ -40,3 +40,35 @@ A related address worthy knowing is 169.254.x.x, also called APIPA address. This
 
 **4. What does it mean when a user has a 169.254.x.x address?**
 
+When a device shows a 169.254.x.x address, it means it has been assigned an APIPA, or Automatic Private IP Addressing. This happens when a device fails to obtain an IP address from a DHCP server. The range spans from 169.254.0.0 to 169.255.255.254 and is reserved specifically for this purpose. 
+
+A device with an APIPA can still communicate with other APIPA-assigned devices on the same local network, but it cannot reach the internet or access network resources that require a valid IP address. In practice, seeing this address on a user's machine is a red flag. It almost always means something is broken rather working as intended. 
+
+As a support tech, the first steps are to check whether other devices on the network are experiencing the same issue, verify the physical connection, cable or WIFI. Then check whether the DHCP server is reachable and functioning. 
+
+---
+
+**5. A user says they can't reach the internet. How do you use TCP/IP knowledge to isolate where the problem is?**
+
+As a support tech, troubleshooting the technical problem is not always the first priority. Building rapport/trust with the user first and making sure they feel confident the issue will be resolved is just as important. I would start by asking how they are doing, then ask what they are trying to access and whether they have tried other applications or websites to confirm the issue is not isolate to one. 
+
+If the problem is confirmed, I would follow a logical sequence using TCP/IP knowledge to isolate where the breakdown is.
+
+First, check the physical connection. Verify the ethernet cable is properly connected or the the devices is connected to the correct Wi-Fi network. 
+
+Next,  run ipconfig to check the device's IP address. If it shows a 169.254.x.x address, the device has self-assigned an APIPA address which means it failed to reach the DHCP server. Then that becomes the focus. 
+
+If the IP address looks valid, the next step is to ping the default gateway. If the ping fails, the device cannot reach the router, which means the issue is within the local network. 
+
+If the gateway responds, the issue is likely at the DNS level. I would run a DNS lookup using nslookup to check whether the device can resolve domain names correctly. A failed DNS lookup while the gateway responds points to a DNS configuration issue. 
+
+---
+
+**6. You ping a server by IP and it responds, but pinging by hostname fails. What does that tell you?**
+
+When a server responds to a ping by IP but not by hostname, it tells you the issue is not with connectivity or addressing. The problem is specifically with DNS resolutions.
+
+DNS, or Domain Name System, translates human-readable hostnames into IP addresses. Without it, devices have no way of knowing which IP address a hostname corresponds to. Since the ping by IP succeeded, the network path is intact, its the device that cannot resolve the name.
+
+To isolate further, I would run nslookup. If it returns no results, the DNS server itself may be down or unreachable. It it returns results but they point to the wrong address, the device is likely configured to use the wrong DNS server. In that case I would check the device's DNS setting and verify it is pointing to the correct server.
+
